@@ -10,10 +10,11 @@ todo: Todo[] = []
   constructor() { }
 
   getCache() {
-    this.todo =(JSON.parse(localStorage.getItem('tasks') || '{}'))
+    this.todo =(JSON.parse(localStorage.getItem('tasks') || '[]'))
     return this.todo
+    
   }
-  
+
   addToList(title: string) {    
     this.todo.push({id: this.todo.length, title: title, completed: false})
     localStorage.setItem('tasks', JSON.stringify(this.todo))

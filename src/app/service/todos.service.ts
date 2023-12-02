@@ -18,6 +18,10 @@ todo: Todo[] = []
   return this.todo
  }
 
+ complete(id: number) {
+this.todo[id].completed = !this.todo[id].completed
+
+ }
 
   
 }

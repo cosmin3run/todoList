@@ -10,6 +10,15 @@
 
 <div class="mt-4 text-center">
   <ul *ngFor="let task of tasks">
-    <li *ngIf="task.completed == false">{{ this.tasks[task.id].title }}</li>
+    <li class="d-inline" *ngIf="task.completed == false">
+      {{ this.tasks[task.id].title }}
+      <button
+        class="btn btn-success"
+        type="button"
+        (click)="completeTask(task.id)"
+      >
+        X
+      </button>
+    </li>
   </ul>
 </div>

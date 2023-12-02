@@ -20,6 +20,12 @@ tasks: Todo[] = this.todoSrv.todo
 
   }
   
+  completeTask(id: number): void {
+    
+      this.todoSrv.complete(id)
+    
+  }
+
   addTask(title: string): void {
     setTimeout(() => {
       this.todoSrv.addToList(title)

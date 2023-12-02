@@ -1,1 +1,7 @@
-<p>completed works!</p>
+<div class="mt-4 text-center">
+  <ul *ngFor="let task of tasksDone">
+    <li class="d-inline" *ngIf="task.completed == true">
+      {{ this.tasksDone[task.id].title }}
+    </li>
+  </ul>
+</div>

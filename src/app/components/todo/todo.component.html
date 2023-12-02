@@ -1,5 +1,15 @@
 <app-list></app-list>
-<input type="text" class="form-control" [(ngModel)]="title" />
-<button type="button" class="btn btn-primary mt-4" (click)="addTask(title)">
+<input type="text" class="form-control" #task />
+<button
+  type="button"
+  class="btn btn-primary mt-4"
+  (click)="addTask(task.value)"
+>
   Aggiungi Task
 </button>
+
+<div class="mt-4 text-center">
+  <ul *ngFor="let task of tasks">
+    <li *ngIf="task.completed == false">{{ this.tasks[task.id].title }}</li>
+  </ul>
+</div>

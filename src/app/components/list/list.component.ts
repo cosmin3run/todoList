@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Todo } from 'src/app/models/todo';
 import { TodosService } from 'src/app/service/todos.service';
 
@@ -7,16 +7,15 @@ import { TodosService } from 'src/app/service/todos.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
-  task!: Todo[]; 
+export class ListComponent implements OnInit, OnChanges {
+  task!: string; 
 
   constructor(private todo: TodosService) { }
 
   ngOnInit(): void {
-    this.todo.getList()
-    this.task = this.todo
-    
-    
   }
+  ngOnChanges() {
+  this.task = this.todo.getList().title
+console.log(this.task)}
 
 }

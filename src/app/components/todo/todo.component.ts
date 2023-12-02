@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from 'src/app/service/todos.service';
+import { Todo } from 'src/app/models/todo';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss']
 })
+
 export class TodoComponent implements OnInit {
-title!: string;
+tasks: Todo[] = this.todoSrv.todo
 
 
 
-  constructor(private todo: TodosService) { }
+  constructor(private todoSrv: TodosService) { }
 
    ngOnInit(): void {
     
 
   }
   
-  addTask(title: string) {
+  addTask(title: string): void {
     setTimeout(() => {
-      this.todo.addToList(title)
+      this.todoSrv.addToList(title)
    
     }, 2000 )
   }

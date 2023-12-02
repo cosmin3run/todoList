@@ -10,7 +10,7 @@ todo: Todo[] = []
   constructor() { }
 
   addToList(title: string) {    
-    this.todo.push({id: this.todo.length, title, completed: false})
+    this.todo.push({id: this.todo.length, title: title, completed: false})
     console.log(this.todo)
   }
 

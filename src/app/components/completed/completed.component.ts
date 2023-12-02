@@ -14,7 +14,12 @@ export class CompletedComponent implements OnInit {
   constructor(private todoSrv: TodosService) { }
 
   ngOnInit(): void {
-    
+    setTimeout(() => {
+      const main = document.getElementById("main")
+      const attesa = document.getElementById("attesa")
+      attesa!.className = "d-none"
+      main!.classList.remove('d-none')
+    }, 2000)
   }
 
 }

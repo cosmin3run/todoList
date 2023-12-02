@@ -1,4 +1,8 @@
-<div class="mt-4 text-center">
+<div id="attesa" class="d-flex justify-content-center">
+  <h3>Recuperando i Task completi...</h3>
+</div>
+
+<div id="main" class="d-none mt-4 text-center">
   <ul *ngFor="let task of tasksDone">
     <li class="d-inline" *ngIf="task.completed == true">
       {{ this.tasksDone[task.id].title }}

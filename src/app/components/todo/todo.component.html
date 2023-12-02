@@ -8,17 +8,27 @@
   Aggiungi Task
 </button>
 
-<div class="mt-4 text-center">
-  <ul *ngFor="let task of tasks">
-    <li class="d-inline" *ngIf="task.completed == false">
-      {{ this.tasks[task.id].title }}
-      <button
-        class="btn btn-success"
-        type="button"
-        (click)="completeTask(task.id)"
-      >
-        X
-      </button>
-    </li>
-  </ul>
+<div id="attesa" class="d-flex justify-content-center">
+  <h3>Recuperando i Task da completare</h3>
 </div>
+
+<div id="main" class="d-none mt-4 text-center">
+  <ng-container *ngIf="tasks.length > 0; else taskLess">
+    <ul *ngFor="let task of tasks">
+      <li class="d-inline" *ngIf="task.completed == false">
+        {{ this.tasks[task.id].title }}
+        <button
+          class="btn btn-success check"
+          type="button"
+          (click)="completeTask(task.id)"
+        >
+          ✓
+        </button>
+      </li>
+    </ul>
+  </ng-container>
+</div>
+
+<ng-template #taskLess>
+  <h2>******** NESSUN TASK AGGIUNTO **********</h2>
+</ng-template>

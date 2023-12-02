@@ -35,7 +35,9 @@ tasks: Todo[] = this.todoSrv.todo
     setTimeout(() => {
       this.todoSrv.addToList(title)
    
-    }, 2000 )
+    }, 2000 );
+    const input = document.getElementById("input") as HTMLInputElement
+    input.value = ""
   }
 
 }

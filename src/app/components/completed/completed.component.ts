@@ -9,7 +9,7 @@ import { TodosService } from 'src/app/service/todos.service';
 })
 export class CompletedComponent implements OnInit {
 
-  tasksDone: Todo[] = this.todoSrv.todo
+  tasksDone: Todo[] = []
 
   constructor(private todoSrv: TodosService) { }
 
@@ -19,7 +19,9 @@ export class CompletedComponent implements OnInit {
       const attesa = document.getElementById("attesa")
       attesa!.className = "d-none"
       main!.classList.remove('d-none')
+      this.tasksDone = this.todoSrv.getCache()
     }, 2000)
+
   }
 
 }

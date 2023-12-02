@@ -9,23 +9,24 @@ import { Todo } from 'src/app/models/todo';
 })
 
 export class TodoComponent implements OnInit {
-tasks: Todo[] = this.todoSrv.todo
+tasks: Todo[] = []
 
 
 
   constructor(private todoSrv: TodosService) { }
 
-   ngOnInit(): void {
-    setTimeout(() => {
-      const main = document.getElementById("main")
-      const attesa = document.getElementById("attesa")
-      attesa!.className = "d-none"
-      main!.classList.remove('d-none')
-    }, 2000)
-
-  }
-  
-  completeTask(id: number): void {
+   public ngOnInit() {
+     setTimeout(() => {
+       const main = document.getElementById("main")
+       const attesa = document.getElementById("attesa")
+       attesa!.className = "d-none"
+       main!.classList.remove('d-none')
+       this.tasks = this.todoSrv.getCache()
+      }, 2000);
+    }
+    
+    
+    completeTask(id: number): void {
     
       this.todoSrv.complete(id)
     
